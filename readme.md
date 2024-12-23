@@ -1,22 +1,4 @@
-namespace EmpWageUc1
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            Random random = new Random();
-
-            int attend = random.Next(0, 2);
-
-            if (attend == 0)
-            {
-                Console.WriteLine("Employee is present");
-            }
-            else
-            {
-                Console.WriteLine("Employee is not present");
-            }
-        }
-    }
-}
+UC 1 : Check Employee is Present or Absent 
+Use ((RANDOM)) for Attendance 
+Check
 
