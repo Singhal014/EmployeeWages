@@ -1,21 +1,50 @@
-using System;
 
-namespace EmpWagesUc3
+namespace EmpWageUc4
 {
     internal class Program
     {
-        static void Main(string[] args)
+        public static int GetWork()
         {
-            Random random = new Random();
-            int wageperhour = 20;
-            
-            int work = random.Next(8);
+            Random rnd = new Random();
+            int work = rnd.Next(0, 3);
 
-            if (work < 4)
+            switch (work)
             {
-                Console.WriteLine("It is Part time Employee");
+                case 0:
+                    return 0;
+
+                case 1:
+                    return 4;
+
+                case 2:
+                    return 8;
+                default:
+                    return 0;
             }
         }
-    }
-}
+        static void Main(string[] args)
+        {
+            int WagePerHours = 20;
+
+            int WorkHours = GetWork();
+
+            int dailyWage = WagePerHours * WorkHours;
+
+            if (WorkHours == 0)
+            {
+                Console.WriteLine("Employee did not work");
+                Console.WriteLine("Total Wages : $ " + dailyWage);
+            }
+            else if (WorkHours == 4)
+            {
+                Console.WriteLine("Employee work part time");
+                Console.WriteLine("Total Wages : $ " + dailyWage);
+            }
+            else if (WorkHours == 8)
+            {
+                Console.WriteLine("Employee work full time");
+                Console.WriteLine("Total Wages : $ " + dailyWage);
+            }
+
+
 
