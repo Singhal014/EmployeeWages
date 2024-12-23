@@ -1,50 +1,46 @@
-
-namespace EmpWageUc4
+namespace EmpWageUc5
 {
-    internal class Program
-    {
-        public static int GetWork()
-        {
-            Random rnd = new Random();
-            int work = rnd.Next(0, 3);
+    using System;
 
-            switch (work)
+    class EmployeeWage
+    {
+        static int GetWorkHours(Random random)
+        {
+            int workType = random.Next(0, 3);
+
+            switch (workType)
             {
                 case 0:
                     return 0;
-
                 case 1:
                     return 4;
-
                 case 2:
                     return 8;
                 default:
                     return 0;
             }
         }
+
         static void Main(string[] args)
         {
-            int WagePerHours = 20;
+            const int WagePerHour = 20;
+            const int WorkingDaysPerMonth = 20;
+            int totalMonthlyWage = 0;
+            Random random = new Random();
 
-            int WorkHours = GetWork();
 
-            int dailyWage = WagePerHours * WorkHours;
+            for (int day = 1; day <= WorkingDaysPerMonth; day++)
+            {
+                int workHours = GetWorkHours(random);
+                int dailyWage = workHours * WagePerHour;
+                totalMonthlyWage += dailyWage;
 
-            if (WorkHours == 0)
-            {
-                Console.WriteLine("Employee did not work");
-                Console.WriteLine("Total Wages : $ " + dailyWage);
-            }
-            else if (WorkHours == 4)
-            {
-                Console.WriteLine("Employee work part time");
-                Console.WriteLine("Total Wages : $ " + dailyWage);
-            }
-            else if (WorkHours == 8)
-            {
-                Console.WriteLine("Employee work full time");
-                Console.WriteLine("Total Wages : $ " + dailyWage);
+                Console.WriteLine($"Day {day}: Work Hours = {workHours}, Daily Wage = ${dailyWage}");
             }
 
-
+            Console.WriteLine($"\nTotal Monthly Wage: ${totalMonthlyWage}");
+            Console.ReadLine();
+        }
+    }
+}
 
