@@ -10,7 +10,7 @@ namespace EmpWageUc2
             int WagePerHour = 20;
             int total = 0;
 
-            int work = wage.Next(8);
+            int work = wage.Next(1,9);
 
             if (work <= 8)
             {
