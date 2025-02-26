@@ -15,7 +15,7 @@ namespace EmpWageUc2
             if (work <= 8)
             {
                 total = work * WagePerHour;
-                Console.WriteLine("Employee work " +work +" days and Total Wage :" + total);
+                Console.WriteLine("Employee work " +work +" Hour and Total Wage :" + total);
             }
         }
     }
